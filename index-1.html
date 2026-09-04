@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAP & TELL – Patient Experience</title>
+<style>
+:root{--blue:#07537c;--cyan:#0792a8;--green:#159b83;--ink:#12344a;--muted:#6e8391;--line:#d7e2e8;--bg:#f7fbfc}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:720px;margin:auto;background:#fff;min-height:100vh}
+header{display:flex;align-items:center;gap:18px;padding:28px 30px}
+.logo{width:92px;height:92px;border-radius:25px;background:linear-gradient(145deg,var(--blue),#087a9b);color:#fff;display:grid;place-items:center;font-size:44px;font-weight:800;position:relative}
+.logo:after{content:"";position:absolute;right:-4px;bottom:10px;width:20px;height:20px;border-radius:50%;background:#20b89b;border:5px solid #fff}
+.brand{flex:1}.brand b{display:block;font-size:34px;letter-spacing:1px;line-height:1.5}.brand span{font-size:24px;color:var(--muted)}
+.pilot{font-weight:800;color:#08739b;letter-spacing:1px;text-align:right}
+.bar{background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff;padding:20px 30px;display:flex;justify-content:space-between;font-size:21px;font-weight:700}
+main{padding:30px}.privacy{background:#edf9f6;border:1px solid #bfe1d9;border-radius:26px;padding:22px 26px;margin:0 0 28px;font-size:20px;line-height:1.45}
+.privacy b{color:#087e70}.card{border:1px solid var(--line);border-radius:28px;padding:28px;margin:0 0 24px;box-shadow:0 2px 8px #1232}
+.qn{font-weight:800;color:#08749a;letter-spacing:2px;font-size:16px}.q{font-size:28px;margin:12px 0 20px;line-height:1.2}
+.options{display:grid;gap:12px}.opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:15px;font-size:18px;background:#fff}
+.stars{display:flex;justify-content:space-between;gap:8px}.stars label{flex:1;text-align:center}.stars input{display:none}.stars span{display:block;border:1px solid var(--line);border-radius:14px;padding:14px 4px;font-size:29px;color:#b5c1c8}
+.stars input:checked+span{background:#e9f8f5;border-color:#159b83;color:#159b83}
+textarea{width:100%;min-height:130px;border:1px solid var(--line);border-radius:16px;padding:15px;font:inherit;resize:vertical}
+button{width:100%;border:0;border-radius:18px;padding:18px;background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff;font-size:20px;font-weight:800}
+.small{color:var(--muted);font-size:14px;text-align:center;margin-top:18px;line-height:1.4}
+#thanks{display:none;padding:70px 30px;text-align:center}#thanks h1{color:var(--green)}
+@media(max-width:520px){header{padding:20px 18px}.logo{width:72px;height:72px;font-size:34px}.brand b{font-size:27px}.brand span{font-size:19px}.pilot{font-size:13px}.bar,main{padding-left:18px;padding-right:18px}.bar{font-size:17px}.q{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section id="formView">
+<header><div class="logo">T</div><div class="brand"><b>TAP &<br>TELL</b><span>Patient Experience</span></div><div class="pilot">PROGETTO<br>PILOTA</div></header>
+<div class="bar"><span>✓ Questionario anonimo</span><span>Circa 1 minuto</span></div>
+<main>
+<div class="privacy"><b>✓ La tua privacy è tutelata</b><br>Non raccogliamo nome, contatti, cartella clinica o altri dati identificativi.</div>
+<form id="feedbackForm">
+<div class="card"><div class="qn">DOMANDA 1</div><div class="q">Quale servizio hai utilizzato?</div>
+<div class="options">
+<label class="opt"><input required type="radio" name="servizio" value="Accettazione / Front Office"> Accettazione / Front Office</label>
+<label class="opt"><input type="radio" name="servizio" value="Ambulatorio"> Ambulatorio</label>
+<label class="opt"><input type="radio" name="servizio" value="Diagnostica / Esami"> Diagnostica / Esami</label>
+<label class="opt"><input type="radio" name="servizio" value="Reparto di degenza"> Reparto di degenza</label>
+<label class="opt"><input type="radio" name="servizio" value="Altro"> Altro</label>
+</div></div>
+<div class="card"><div class="qn">DOMANDA 2</div><div class="q">Come valuti complessivamente la tua esperienza?</div>
+<div class="stars">
+<label><input required type="radio" name="valutazione_complessiva" value="1"><span>★<br><small>1</small></span></label>
+<label><input type="radio" name="valutazione_complessiva" value="2"><span>★<br><small>2</small></span></label>
+<label><input type="radio" name="valutazione_complessiva" value="3"><span>★<br><small>3</small></span></label>
+<label><input type="radio" name="valutazione_complessiva" value="4"><span>★<br><small>4</small></span></label>
+<label><input type="radio" name="valutazione_complessiva" value="5"><span>★<br><small>5</small></span></label>
+</div></div>
+<div class="card"><div class="qn">DOMANDA 3</div><div class="q">Accoglienza e disponibilità del personale</div>
+<div class="stars">
+<label><input required type="radio" name="personale" value="1"><span>★<br><small>1</small></span></label>
+<label><input type="radio" name="personale" value="2"><span>★<br><small>2</small></span></label>
+<label><input type="radio" name="personale" value="3"><span>★<br><small>3</small></span></label>
+<label><input type="radio" name="personale" value="4"><span>★<br><small>4</small></span></label>
+<label><input type="radio" name="personale" value="5"><span>★<br><small>5</small></span></label>
+</div></div>
+<div class="card"><div class="qn">DOMANDA 4</div><div class="q">Le informazioni ricevute sono state chiare?</div>
+<div class="options">
+<label class="opt"><input required type="radio" name="informazioni_chiare" value="Sì"> Sì</label>
+<label class="opt"><input type="radio" name="informazioni_chiare" value="In parte"> In parte</label>
+<label class="opt"><input type="radio" name="informazioni_chiare" value="No"> No</label>
+</div></div>
+<div class="card"><div class="qn">DOMANDA 5</div><div class="q">Vuoi raccontarci qualcosa?</div>
+<textarea name="commento" maxlength="1000" placeholder="Commento facoltativo"></textarea></div>
+<button type="submit">INVIA IL MIO FEEDBACK</button>
+<div class="small">Versione dimostrativa pubblicabile su GitHub Pages. Non richiede accesso ChatGPT. In questa versione di prova i dati non vengono trasmessi né memorizzati.</div>
+</form>
+</main>
+</section>
+<section id="thanks"><h1>GRAZIE PER IL TUO CONTRIBUTO</h1><p>Il questionario di prova è stato completato.</p><p>La tua esperienza è importante e contribuisce a comprendere meglio i servizi e le possibili aree di miglioramento.</p><p><b>ASCOLTARE • COMPRENDERE • MIGLIORARE</b></p></section>
+</div>
+<script>
+const form=document.getElementById('feedbackForm');
+form.addEventListener('submit',(e)=>{
+ e.preventDefault();
+ if(!form.checkValidity()){form.reportValidity();return;}
+ document.getElementById('formView').style.display='none';
+ document.getElementById('thanks').style.display='block';
+ form.reset();
+ window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
